@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"van-icon": "@vant/weapp/icon/index"
+	},
+	"navigationBarTextStyle":"black",
+	"navigationBarTitleText": "职位发布"
+}

@@ -1,0 +1,71 @@
+<view class="sift-container">
+  <van-tabs active="{{ activeTab }}" bind:change="onTabChange" sticky color="#FF8C00">
+    <van-tab title="待筛选" name="pending">
+      <view class="resume-list">
+        <block wx:if="{{pendingList.length > 0}}">
+          <view class="resume-item" wx:for="{{pendingList}}" wx:key="id">
+            <view class="resume-info" bindtap="viewResumeDetail" data-id="{{item.id}}">
+              <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+              <view class="basic-info">
+                <text class="name">{{item.name}}</text>
+                <text class="position">应聘：{{item.position}}</text>
+                <view class="tags">
+                  <text class="tag">{{item.education}}</text>
+                  <text class="tag">{{item.experience}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="action-buttons">
+              <van-button size="small" type="primary" bind:tap="approveResume" data-id="{{item.id}}">通过</van-button>
+              <van-button size="small" bind:tap="rejectResume" data-id="{{item.id}}">拒绝</van-button>
+            </view>
+          </view>
+        </block>
+        <view wx:else class="empty-tip">暂无待筛选简历</view>
+      </view>
+    </van-tab>
+    
+    <van-tab title="已通过" name="approved">
+      <view class="resume-list">
+        <block wx:if="{{approvedList.length > 0}}">
+          <view class="resume-item" wx:for="{{approvedList}}" wx:key="id">
+            <view class="resume-info" bindtap="viewResumeDetail" data-id="{{item.id}}">
+              <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+              <view class="basic-info">
+                <text class="name">{{item.name}}</text>
+                <text class="position">应聘：{{item.position}}</text>
+                <view class="tags">
+                  <text class="tag">{{item.education}}</text>
+                  <text class="tag">{{item.experience}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view wx:else class="empty-tip">暂无已通过简历</view>
+      </view>
+    </van-tab>
+    
+    <van-tab title="已拒绝" name="rejected">
+      <view class="resume-list">
+        <block wx:if="{{rejectedList.length > 0}}">
+          <view class="resume-item" wx:for="{{rejectedList}}" wx:key="id">
+            <view class="resume-info" bindtap="viewResumeDetail" data-id="{{item.id}}">
+              <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+              <view class="basic-info">
+                <text class="name">{{item.name}}</text>
+                <text class="position">应聘：{{item.position}}</text>
+                <view class="tags">
+                  <text class="tag">{{item.education}}</text>
+                  <text class="tag">{{item.experience}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view wx:else class="empty-tip">暂无已拒绝简历</view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>
+

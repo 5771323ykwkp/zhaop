@@ -1,0 +1,39 @@
+<!-- 公告页面 -->
+<view class="notice-page">
+  <!-- 搜索框部分 -->
+  <view class="search-container">
+    <van-search 
+      value="{{ noticeSearchKey }}" 
+      placeholder="请输入搜索关键词" 
+      shape="round"
+      bind:change="onSearchChange"
+      bind:search="onSearch"
+    ></van-search>
+  </view>
+
+  <!-- 总数显示 -->
+  <view class="total-count">
+    <text>总共{{total}}条</text>
+  </view>
+
+  <!-- 公告列表 -->
+  <view class="notice-list">
+    <block wx:for="{{notices}}" wx:key="id">
+      <!-- 公告卡片，点击跳转到详情页 -->
+      <view class="notice-card" bindtap="navigateToNoticeDetail" data-id="{{item.id}}">
+        <view class="notice-content">
+          <view class="notice-header">
+            <text class="notice-title">{{item.title}}</text>
+            <text class="notice-type">{{item.type}}</text>
+          </view>
+          <text class="notice-brief">{{item.contents}}</text>
+          <view class="notice-footer">
+            <text class="notice-time">发布时间：{{item.time}}</text>
+          </view>
+        </view>
+        <image src="{{item.src || '/image/swiper/news.webp'}}" class="notice-image" mode="aspectFill"></image>
+      </view>
+    </block>
+  </view>
+</view>
+

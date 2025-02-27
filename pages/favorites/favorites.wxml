@@ -1,0 +1,51 @@
+<view class="favorites-page">
+  <van-tabs active="{{ active }}" bind:change="onTabChange" color="#ff6b6b" title-active-color="#ff6b6b">
+    <van-tab title="收藏的公告">
+      <view class="favorite-list">
+        <view class="favorite-item" wx:for="{{ favoriteNotices }}" wx:key="id">
+          <view class="favorite-content" bindtap="goToNoticeDetail" data-id="{{ item.id }}">
+            <text class="favorite-title">{{ item.title }}</text>
+            <text class="favorite-date">{{ item.date }}</text>
+          </view>
+          <view class="favorite-actions">
+            <van-icon name="delete" color="#ff6b6b" size="24px" bindtap="removeFavorite" data-type="notice" data-id="{{ item.id }}" />
+            <van-icon name="arrow" color="#999" />
+          </view>
+        </view>
+      </view>
+    </van-tab>
+
+    <van-tab title="收藏的职位">
+      <view class="favorite-list">
+        <view class="favorite-item" wx:for="{{ favoriteJobs }}" wx:key="id">
+          <view class="favorite-content" bindtap="goToJobDetail" data-id="{{ item.id }}">
+            <text class="favorite-title">{{ item.title }}</text>
+            <text class="favorite-company">{{ item.company }}</text>
+            <text class="favorite-salary">{{ item.salary }}</text>
+          </view>
+          <view class="favorite-actions">
+            <van-icon name="delete" color="#ff6b6b" size="24px" bindtap="removeFavorite" data-type="job" data-id="{{ item.id }}" />
+            <van-icon name="arrow" color="#999" />
+          </view>
+        </view>
+      </view>
+    </van-tab>
+
+    <van-tab title="收藏的企业">
+      <view class="favorite-list">
+        <view class="favorite-item" wx:for="{{ favoriteEnterprises }}" wx:key="id">
+          <image class="favorite-logo" src="{{ item.logo || '/image/menu/enterprise.png'}}" mode="aspectFit"></image>
+          <view class="favorite-content" bindtap="goToEnterpriseDetail" data-id="{{ item.id }}">
+            <text class="favorite-title">{{ item.name }}</text>
+            <text class="favorite-industry">{{ item.industry }}</text>
+          </view>
+          <view class="favorite-actions">
+            <van-icon name="delete" color="#ff6b6b" size="24px" bindtap="removeFavorite" data-type="enterprise" data-id="{{ item.id }}" />
+            <van-icon name="arrow" color="#999" />
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>
+

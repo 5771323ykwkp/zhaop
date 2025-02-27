@@ -1,0 +1,92 @@
+<!-- 公告通知栏 -->
+<view class="index-page">
+<view class="notice-content">
+<van-notice-bar 
+  left-icon="volume" 
+  text="{{notice}}"
+  color="#FF8C00"
+  background="#FFF5E6"
+></van-notice-bar>
+</view>
+
+<!-- 轮播图部分 -->
+<swiper class="home-swiper" indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.6)" indicator-active-color="#FF8C00" autoplay="true" interval="3000" circular="true">
+  <swiper-item wx:for="{{swiperList}}" wx:key="id">
+    <image src="{{item.imageUrl}}" mode="aspectFill" class="swiper-image" bind:tap="onSwiperTap" data-id="{{item.id}}"></image>
+  </swiper-item>
+</swiper>
+
+<!-- 功能按钮区域 -->
+<view class="menu-container">
+  <view class="menu-item" wx:for="{{menuItems}}" wx:key="id" bindtap="{{item.action}}">
+    <image class="menu-icon" src="{{item.icon}}"></image>
+    <text class="menu-text">{{item.text}}</text>
+  </view>
+</view>
+
+<!-- 精选企业 -->
+<view class="section-container">
+  <view class="section-header">
+    <image class="section-icon" src="/image/icon/enterprise.png"></image>
+    <text class="section-title">精选企业</text>
+    <view class="section-more" bindtap="viewMoreEnterprises">
+      <text>查看更多</text>
+      <van-icon name="arrow" />
+    </view>
+  </view>
+  <view class="enterprise-list">
+    <view class="enterprise-item" wx:for="{{featuredEnterprises}}" wx:key="id" bindtap="goToEnterpriseDetail" data-id="{{item.id}}">
+      <image class="enterprise-logo" src="{{item.logo || '/image/tabbar/home2.png'}}" mode="aspectFit"></image>
+      <text class="enterprise-name">{{item.name}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 推荐岗位 -->
+<view class="section-container">
+  <view class="section-header">
+    <image class="section-icon" src="/image/icon/job.png"></image>
+    <text class="section-title">推荐岗位</text>
+    <view class="section-more" bindtap="viewMoreJobs">
+      <text>查看更多</text>
+      <van-icon name="arrow" />
+    </view>
+  </view>
+  <view class="job-list">
+    <view class="job-item" wx:for="{{recommendedJobs}}" wx:key="id" bindtap="goToJobDetail" data-id="{{item.id}}">
+      <view class="job-main">
+        <text class="job-title">{{item.title}}</text>
+        <text class="job-salary">{{item.salary}}</text>
+      </view>
+      <view class="job-sub">
+        <text class="job-company">{{item.company}}</text>
+        <text class="job-location">{{item.location}}</text>
+      </view>
+      <view class="job-tags">
+        <text class="job-tag" wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">{{tag}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 最新公告 -->
+<view class="section-container">
+  <view class="section-header">
+    <image class="section-icon" src="/image/icon/notice.png"></image>
+    <text class="section-title">最新公告</text>
+    <view class="section-more" bindtap="viewMoreNotices">
+      <text>查看更多</text>
+      <van-icon name="arrow" />
+    </view>
+  </view>
+  <view class="notice-list">
+    <view class="notice-item" wx:for="{{latestNotices}}" wx:key="id" bindtap="goToNoticeDetail" data-id="{{item.id}}">
+      <view class="notice-content">
+        <text class="notice-title">{{item.title}}</text>
+        <text class="notice-time">{{item.time}}</text>
+      </view>
+      <van-icon name="arrow" color="#999" />
+    </view>
+  </view>
+</view>
+</view>

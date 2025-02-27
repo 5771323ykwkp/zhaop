@@ -1,0 +1,93 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/homs",
+    "pages/notice/notice",
+    "pages/job/job",
+    "pages/enterprise/enterprise",
+    "pages/my/my",
+    "pages/resume/resume",
+    "pages/notice_details/notice_details",
+    "pages/job_details/job_details",
+    "pages/enterprise_details/enterprise_details",
+    "pages/favorites/favorites",
+    "pages/application-history/application-history",
+    "pages/message-center/message-center",
+    "pages/help-center/help-center",
+    "pages/about-us/about-us",
+    "pages/set/set",
+    "pages/enterprise_jobs/enterprise_jobs",
+		"pages/feedback/feedback",
+		"pages/logins/logins",
+		"pages/register/register",
+		"pages/Recruiter/index/index",
+		"pages/Recruiter/posts/posts",
+		"pages/Recruiter/certification/certification",
+		"pages/Recruiter/sift/sift",
+		"pages/Recruiter/communicate/communicate",
+		"pages/Recruiter/statistics/statistics",
+		"pages/Recruiter/set/set",
+		"pages/Recruiter/notice_details/notice_details",
+		"pages/Recruiter/about-us/about-us",
+		"pages/Recruiter/logins/logins",
+		"pages/Recruiter/register/register"
+		
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "基于FastAPI的求职招聘小程序",
+    "navigationBarBackgroundColor": "#FF8C00",
+    "backgroundTextStyle": "light"
+  },
+  "usingComponents": {
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+		"van-button": "@vant/weapp/button/index",
+		"van-tab": "@vant/weapp/tab/index",
+		"van-tabs": "@vant/weapp/tabs/index",
+		"van-search": "@vant/weapp/search/index"
+  },
+  "tabBar": {
+    "custom": false,
+    "backgroundColor": "#FFFFFF",
+    "color": "#808080",
+    "selectedColor": "#2F4F4F",
+    "list": [
+      {
+        "pagePath": "pages/home/homs",
+        "text": "首页",
+        "iconPath": "/image/tabbar/home1.png",
+        "selectedIconPath": "/image/tabbar/home2.png"
+      },
+      {
+        "pagePath": "pages/notice/notice",
+        "text": "公告",
+        "iconPath": "/image/tabbar/natice1.png",
+        "selectedIconPath": "/image/tabbar/natice2.png"
+      },
+      {
+        "pagePath": "pages/job/job",
+        "text": "职位",
+        "iconPath": "/image/tabbar/job1.png",
+        "selectedIconPath": "/image/tabbar/job2.png"
+      },
+      {
+        "pagePath": "pages/enterprise/enterprise",
+        "text": "企业库",
+        "iconPath": "/image/tabbar/enterprise1.png",
+        "selectedIconPath": "/image/tabbar/enterprise2.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/image/tabbar/user1.png",
+        "selectedIconPath": "/image/tabbar/user2.png"
+      }
+    ]
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

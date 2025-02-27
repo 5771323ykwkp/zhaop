@@ -1,0 +1,43 @@
+<view class="about-page">
+  <!-- 小程序LOGO -->
+  <view class="company-header">
+    <image class="company-logo" src="/image/my/succes.png" mode="aspectFit"></image>
+    <text class="company-name">基于微信小程序+FastAPI的求职招聘系统</text>
+    <text class="company-version">版本 ：宇宙最强版本</text>
+  </view>
+
+  <!-- 公司简介 -->
+  <view class="about-section">
+    <view class="section-title">关于我们</view>
+    <text class="about-content">{{aboutContent}}</text>
+  </view>
+
+  <!-- 功能特点 -->
+  <view class="features-section">
+    <view class="section-title">功能特点</view>
+    <view class="feature-list">
+      <view class="feature-item" wx:for="{{features}}" wx:key="id">
+        <van-icon name="{{item.icon}}" color="#ff8c00" size="50rpx" />
+        <text class="feature-title">{{item.title}}</text>
+        <text class="feature-desc">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部链接 -->
+  <view class="bottom-links">
+    <view class="link-item" bindtap="openWebsite">
+      <van-icon name="diamond" />
+      <text>访问官网</text>
+    </view>
+    <view class="link-item" bindtap="openPrivacyPolicy">
+      <van-icon name="eye" />
+      <text>隐私政策</text>
+    </view>
+    <view class="link-item" bindtap="openUserAgreement">
+      <van-icon name="description" />
+      <text>用户协议</text>
+    </view>
+  </view>
+</view>
+

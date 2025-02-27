@@ -1,0 +1,52 @@
+<!-- 企业库页面 -->
+<view class="enterprise-page">
+  <!-- 搜索框部分 -->
+  <view class="search-container">
+    <van-search 
+      value="{{ enterpriseKey }}" 
+      placeholder="请输入搜索关键词" 
+      shape="round"
+      bind:change="onSearchChange"
+      bind:search="onSearch"
+    ></van-search>
+  </view>
+
+  <!-- 总数显示 -->
+  <view class="total-count">
+    <text>总共{{total}}条</text>
+  </view>
+
+  <!-- 企业列表 -->
+  <view class="enterprise-list">
+    <block wx:for="{{enterprises}}" wx:key="id">
+      <!-- 企业卡片，点击跳转到详情页 -->
+      <view class="enterprise-card" bindtap="navigateToDetail" data-id="{{item.id}}">
+        <!-- 企业基本信息区域 -->
+        <view class="card-header">
+          <!-- 企业logo -->
+          <image class="enterprise-logo" src="{{item.logo || '/image/swiper/news.webp'}}" mode="aspectFit"></image>
+          <view class="enterprise-info">
+            <!-- 企业名称 -->
+            <text class="enterprise-name">{{item.name}}</text>
+            <!-- 企业规模和类型 -->
+            <text class="enterprise-meta">{{item.scale}} | {{item.type}}</text>
+          </view>
+        </view>
+        
+        <!-- 企业详细信息区域 -->
+        <view class="card-content">
+          <!-- 位置信息 -->
+          <view class="info-item">
+            <image class="icon" src="/image/icon/enterprise.png" mode="aspectFit"></image>
+            <text>{{item.location}}</text>
+          </view>
+          <!-- 企业特色标签 -->
+          <view class="tags">
+            <text wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag" class="tag">{{tag}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+

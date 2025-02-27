@@ -1,0 +1,38 @@
+<!--pages/Recruiter/set/set.wxml-->
+<!-- <text>pages/Recruiter/set/set.wxml</text> -->
+<!-- 系统企业端设置页面 -->
+<view class="settings-container">
+  <!-- 公司基本信息 -->
+  <view class="section">
+    <van-cell-group title="企业信息">
+      <van-cell title="企业名称" value="{{companyInfo.name}}" is-link url="/pages/Recruiter/company-profile/company-profile" />
+      <van-cell title="所在行业" value="{{companyInfo.industry}}" />
+      <van-cell title="公司规模" value="{{companyInfo.size}}" />
+      <van-cell title="公司地址" value="{{companyInfo.address}}" />
+    </van-cell-group>
+  </view>
+
+  <!-- 系统设置cell -->
+  <!-- <view class="section">
+    <van-cell-group title="账户设置">
+      <van-cell title="修改密码" is-link url="/pages/Recruiter/change-password/change-password" />
+      <van-cell title="隐私设置" is-link url="/pages/Recruiter/privacy-settings/privacy-settings" />
+      <van-cell title="消息通知" is-link url="/pages/Recruiter/notification-settings/notification-settings" />
+    </van-cell-group>
+  </view> -->
+
+  <!-- Help and Support Section -->
+  <view class="section">
+    <van-cell-group title="帮助与支持">
+      <van-cell title="常见问题" is-link url="/pages/Recruiter/faq/faq" />
+      <van-cell title="联系客服" is-link bindtap="contactCustomerService" />
+      <van-cell title="关于我们" is-link url="/pages/Recruiter/about-us/about-us" />
+    </van-cell-group>
+  </view>
+
+  <!-- 系统退出按钮 -->
+  <view class="logout-button">
+    <van-button type="danger" block bind:click="handleLogout">退出登录</van-button>
+  </view>
+</view>
+

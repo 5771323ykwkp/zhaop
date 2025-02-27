@@ -1,0 +1,30 @@
+<!-- 公告详情页面 -->
+<view class="notice-detail-page">
+  <!-- 公告卡片 -->
+  <view class="notice-card">
+    <text class="notice-title">{{noticeData.title}}</text>
+    <view class="notice-meta">
+      <text class="notice-date">{{noticeData.date}}</text>
+      <text class="notice-type">{{noticeData.type}}</text>
+    </view>
+  </view>
+  
+  <!-- 公告图片 -->
+  <image class="notice-image" src="{{noticeData.imageUrl || '/image/swiper/news.webp'}}" mode="widthFix"></image>
+  
+  <!-- 公告内容 -->
+  <view class="notice-content">
+    <text>{{noticeData.content}}</text>
+  </view>
+  
+  <!-- 操作按钮 -->
+  <view class="notice-actions">
+    <button class="action-button favorite-button" bindtap="toggleFavorite">
+      {{isFavorite ? '已收藏' : '收藏'}}
+    </button>
+    <button class="action-button share-button" open-type="share">
+      分享
+    </button>
+  </view>
+</view>
+

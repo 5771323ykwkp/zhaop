@@ -1,0 +1,93 @@
+/* 页面整体样式 */
+.notice-page {
+  min-height: 100vh;
+  background-color:	#F5F5F5;
+}
+
+/* 搜索框容器样式 */
+.search-container {
+	/* 这个属性使元素在滚动时保持固定位置。 */
+	position: sticky; 
+	/* 这指定了元素应该固定在视口的顶部。 */
+	top: 0;
+	/* 这确保搜索框始终显示在其他内容之上。 */
+  z-index: 100;
+}
+/* 总数显示样式 */
+.total-count {
+  padding: 15rpx;
+  font-size: 30rpx;
+	color:black;
+	text-align: center;
+}
+
+/* 公告列表样式 */
+.notice-list {
+  padding: 0 20rpx;
+}
+
+/* 公告卡片样式 */
+.notice-card {
+  display: flex;
+  background-color:#FFFFFF;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 公告内容区域样式 */
+.notice-content {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+/* 公告头部样式 */
+.notice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+/* 公告标题样式 */
+.notice-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 公告类型样式 */
+.notice-type {
+  font-size: 24rpx;
+  color: #ff8c00;
+  background-color: rgba(255, 140, 0, 0.1);
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+}
+
+/* 公告简介样式 */
+.notice-brief {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* 公告底部样式 */
+.notice-footer {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 公告图片样式 */
+.notice-image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  object-fit: cover;
+}
+

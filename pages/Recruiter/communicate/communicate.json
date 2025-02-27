@@ -1,0 +1,6 @@
+{
+	"usingComponents": {},
+	"navigationBarTitleText": "沟通中心",
+	"navigationBarTextStyle":"black",
+	"enablePullDownRefresh": true
+}

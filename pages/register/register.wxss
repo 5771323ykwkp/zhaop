@@ -1,0 +1,71 @@
+/* pages/register/register.wxss */
+/* pages/register/register.wxss */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+	background-color: #fafafa; /* 淡灰色背景 */
+
+}
+
+.register-box {
+  background-color: #fff;
+  width: 80%;
+  max-width: 800rpx;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	margin-bottom: 500rpx;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1E90FF; /* 标题颜色改为蓝色 */
+  margin-bottom: 20px;
+}
+
+.input {
+  width: calc(100% - 40px); /* 输入框宽度减少，左右留出间距 */
+  height: 40px; /* 输入框高度减小 */
+  padding: 0 20px; /* 左右间距 */
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.placeholder {
+  color: #999;
+}
+
+.btn-register {
+  width: calc(100% - 40px); /* 按钮宽度与输入框一致 */
+  height: 40px; /* 按钮高度减小 */
+  background-color: tomato; /* 按钮颜色改为 tomato */
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.btn-register:active {
+  background-color: #ff6347; /* tomato 的深色效果 */
+}
+
+.login-link {
+  font-size: 14px;
+  color: #666;
+}
+
+.link {
+  color: #1E90FF; /* 链接颜色改为蓝色 */
+  font-weight: bold;
+  margin-left: 5px;
+}

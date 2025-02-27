@@ -1,0 +1,47 @@
+<!-- 职位列表页面 -->
+<view class="job-page">
+  <!-- 搜索框部分 -->
+  <view class="search-container">
+    <van-search 
+      value="{{ jobSearchKey }}" 
+      placeholder="请输入职位关键词" 
+      shape="round"
+      bind:change="onSearchChange"
+      bind:search="onSearch"
+    ></van-search>
+  </view>
+
+  <!-- 总数显示 -->
+  <view class="total-count">
+    <text>总共{{total}}条</text>
+  </view>
+
+  <!-- 职位列表 -->
+  <view class="job-list">
+    <block wx:for="{{jobs}}" wx:key="id">
+      <!-- 职位卡片，点击跳转到详情页 -->
+      <view class="job-card" bindtap="navigateToJobDetail" data-id="{{item.id}}">
+        <view class="job-header">
+          <text class="job-name">{{item.jobname}}</text>
+          <text class="job-salary">{{item.payroll}}</text>
+        </view>
+        <view class="job-company">
+          <text>{{item.company}}</text>
+          <text class="job-location">{{item.location}}</text>
+        </view>
+        <view class="job-tags">
+          <text wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag" class="job-tag">{{tag}}</text>
+        </view>
+        <view class="job-description">
+          <text class="description-title">职位描述：</text>
+          <text class="description-content">{{item.jobcont}}</text>
+        </view>
+        <view class="job-requirements">
+          <text class="requirements-title">任职要求：</text>
+          <text class="requirements-content">{{item.Qualifications}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+

@@ -1,0 +1,140 @@
+/* 整体容器样式 */
+.resume-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 180rpx; /* 为底部按钮留出空间 */
+}
+
+/* 头部区域样式 */
+.header-section {
+  background-color: #ffffff;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 头像容器样式 */
+.avatar-container {
+  position: relative;
+  margin-right: 30rpx;
+}
+
+/* 头像样式 */
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  border: 2rpx solid #FF8C00;
+}
+
+/* 上传图标样式 */
+.upload-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #FF8C00;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 基本信息样式 */
+.basic-info {
+  flex: 1;
+}
+
+/* 姓名样式 */
+.name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+/* 职位样式 */
+.subtitle {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 经历列表样式 */
+.experience-list {
+  background-color: #fff;
+}
+
+/* 单个经历项样式 */
+.experience-item {
+  margin-bottom: 20rpx;
+}
+
+/* 删除按钮样式 */
+.delete-btn {
+  height: 100%;
+  width: 65px;
+	background-color: tomato;
+	border-radius: 5rpx;
+	margin-left: 4rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 添加按钮容器样式 */
+.add-btn-container {
+  padding: 30rpx;
+  display: flex;
+  justify-content: center;
+}
+
+/* 技能容器样式 */
+.skills-container {
+  padding: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 单个技能标签样式 */
+.skill-tag {
+  margin: 10rpx;
+}
+
+/* 底部固定按钮样式 */
+.bottom-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10rpx;
+  background-color: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction:row;
+  gap: 35rpx;
+}
+
+/* 自定义 van-field 样式 */
+.van-field__label {
+  color: #333 !important;
+}
+
+/* 自定义 van-button 样式 */
+.van-button--primary {
+  background-color: #FF8C00 !important;
+  border-color: #FF8C00 !important;
+}
+
+/* 自定义 van-tabs 样式 */
+.van-tabs__line {
+  background-color: #FF8C00 !important;
+}
+
+.van-tab--active {
+  color: #FF8C00 !important;
+}
+

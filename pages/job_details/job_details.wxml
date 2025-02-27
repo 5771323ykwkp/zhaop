@@ -1,0 +1,66 @@
+<view class="job-details-page">
+  <!-- 职位信息卡片 -->
+  <view class="job-card">
+    <view class="job-header">
+      <text class="job-title">{{jobData.title}}</text>
+      <text class="job-salary">{{jobData.salary}}</text>
+    </view>
+    <view class="job-meta">
+      <text class="job-company">{{jobData.company}}</text>
+      <text class="job-location">{{jobData.location}}</text>
+    </view>
+    <view class="job-tags">
+      <text class="job-tag" wx:for="{{jobData.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 职位详情 -->
+  <view class="job-section">
+    <view class="section-title">职位详情</view>
+    <text class="section-content">{{jobData.description}}</text>
+  </view>
+
+  <!-- 招聘要求 -->
+  <view class="job-section">
+    <view class="section-title">招聘要求</view>
+    <text class="section-content">{{jobData.requirements}}</text>
+  </view>
+
+  <!-- 工作时间 -->
+  <view class="job-section">
+    <view class="section-title">工作时间</view>
+    <text class="section-content">{{jobData.workHours}}</text>
+  </view>
+
+  <!-- 工作地点 -->
+  <view class="job-section">
+    <view class="section-title">工作地点</view>
+    <text class="section-content">{{jobData.workLocation}}</text>
+  </view>
+
+  <!-- 相似职位 -->
+  <view class="similar-jobs">
+    <view class="section-title">推荐岗位</view>
+    <view class="similar-job-list">
+      <view class="similar-job-item" wx:for="{{similarJobs}}" wx:key="id" bindtap="goToJobDetail" data-id="{{item.id}}">
+        <text class="similar-job-title">{{item.title}}</text>
+        <text class="similar-job-salary">{{item.salary}}</text>
+      </view>
+    </view>
+	</view>
+	
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <button class="action-button apply-button" bindtap="applyJob">投递</button>
+    <button class="action-button favorite-button" bindtap="toggleFavorite">
+      {{isFavorite ? '已收藏' : '收藏'}}
+    </button>
+    <button class="action-button share-button" open-type="share">
+      分享
+    </button>
+    <button class="action-button home-button" bindtap="goToHome">
+      首页
+    </button>
+  </view>
+</view>
+

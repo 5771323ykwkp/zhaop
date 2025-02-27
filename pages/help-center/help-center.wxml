@@ -1,0 +1,44 @@
+<view class="help-page">
+  <!-- 常见问题分类 -->
+  <view class="help-section">
+    <view class="section-title">常见问题</view>
+    <view class="question-list">
+      <view class="question-item" wx:for="{{commonQuestions}}" wx:key="id" bindtap="showAnswer" data-id="{{item.id}}">
+        <view class="question-header">
+          <text class="question-text">{{item.question}}</text>
+          <van-icon name="arrow" />
+        </view>
+        <view class="question-answer" wx:if="{{item.showAnswer}}">
+          {{item.answer}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="contact-section">
+    <view class="section-title">联系我们</view>
+    <view class="contact-list">
+      <view class="contact-item" bindtap="copyText" data-text="{{contactInfo.email}}">
+        <van-icon name="comment-circle" />
+        <text>邮箱：{{contactInfo.email}}</text>
+      </view>
+      <view class="contact-item" bindtap="copyText" data-text="{{contactInfo.phone}}">
+        <van-icon name="phone" />
+        <text>电话：{{contactInfo.phone}}</text>
+      </view>
+      <view class="contact-item">
+        <van-icon name="location" />
+        <text>地址：{{contactInfo.address}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 意见反馈按钮 -->
+  <view class="feedback-button">
+    <van-button type="warning" block bind:tap="onFeedbackTap">
+      意见反馈
+    </van-button>
+  </view>
+</view>
+

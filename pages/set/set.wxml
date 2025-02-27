@@ -1,0 +1,50 @@
+<view class="settings-page">
+  <view class="settings-list">
+    <!-- 个人信息设置 -->
+    <view class="settings-section">
+      <view class="section-title">个人信息</view>
+      <van-cell-group>
+        <van-cell title="编辑个人资料" is-link bind:tap="onEditProfile" />
+        <van-cell title="修改密码" is-link bind:tap="onChangePassword" />
+      </van-cell-group>
+    </view>
+
+    <!-- 通知设置 -->
+    <view class="settings-section">
+      <view class="section-title">通知设置</view>
+      <van-cell-group>
+        <van-cell title="推送通知" value="{{ pushNotification ? '开启' : '关闭' }}">
+          <van-switch checked="{{ pushNotification }}" bind:change="onPushNotificationChange" size="24px" />
+        </van-cell>
+        <van-cell title="邮件通知" value="{{ emailNotification ? '开启' : '关闭' }}">
+          <van-switch checked="{{ emailNotification }}" bind:change="onEmailNotificationChange" size="24px" />
+        </van-cell>
+      </van-cell-group>
+    </view>
+
+    <!-- 隐私设置 -->
+    <view class="settings-section">
+      <view class="section-title">隐私设置</view>
+      <van-cell-group>
+        <van-cell title="隐私政策" is-link bind:tap="onPrivacyPolicy" />
+        <van-cell title="用户协议" is-link bind:tap="onUserAgreement" />
+      </van-cell-group>
+    </view>
+
+    <!-- 其他设置 -->
+    <view class="settings-section">
+      <view class="section-title">其他设置</view>
+      <van-cell-group>
+        <van-cell title="清除缓存" is-link bind:tap="onClearCache" />
+        <van-cell title="检查更新" is-link bind:tap="onCheckUpdate" />
+      </van-cell-group>
+    </view>
+	</view>
+	
+	  <!-- 退出登录事件 -->
+		<view class="logout-button">
+    <van-button type="warning" block bind:tap="onLogoutTap">退出登录</van-button>
+  </view>
+</view>
+
+

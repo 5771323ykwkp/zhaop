@@ -1,0 +1,228 @@
+<view class="resume-container">
+  <!-- 头部区域 -->
+  <view class="header-section">
+    <view class="avatar-container" bindtap="onChooseAvatar">
+      <image class="avatar" src="{{userInfo.avatarUrl || defaultAvatarUrl}}" mode="aspectFill"></image>
+      <view class="upload-icon">
+        <van-icon name="photograph" size="20px" color="#fff" />
+      </view>
+    </view>
+    <view class="basic-info">
+      <text class="name">{{userInfo.name || '请设置姓名'}}</text>
+      <text class="subtitle">{{userInfo.title || '请设置职位'}}</text>
+    </view>
+  </view>
+
+  <!-- 主要内容区域 -->
+  <van-tabs active="{{ activeTab }}" bind:change="onTabChange" sticky color="#FF8C00">
+    <!-- 基本信息标签页 -->
+    <van-tab title="基本信息">
+      <van-cell-group>
+        <van-field
+          value="{{ userInfo.name }}"
+          required
+          clearable
+          label="姓名"
+          placeholder="请输入姓名"
+          bind:change="onFieldChange"
+          data-field="name"
+        />
+        <van-field
+          value="{{ userInfo.title }}"
+          clearable
+          label="职位"
+          placeholder="请输入期望职位"
+          bind:change="onFieldChange"
+          data-field="title"
+        />
+        <van-field
+          value="{{ userInfo.phone }}"
+          required
+          clearable
+          label="手机"
+          placeholder="请输入手机号"
+          bind:change="onFieldChange"
+          data-field="phone"
+        />
+        <van-field
+          value="{{ userInfo.email }}"
+          clearable
+          label="邮箱"
+          placeholder="请输入邮箱"
+          bind:change="onFieldChange"
+          data-field="email"
+        />
+        <van-field
+          value="{{ userInfo.gender }}"
+          required
+          readonly
+          label="性别"
+          placeholder="请选择性别"
+          is-link
+          bind:tap="showGenderPicker"
+        />
+        <van-field
+          value="{{ userInfo.birthday }}"
+          label="生日"
+          placeholder="请选择生日"
+          readonly
+          is-link
+          bind:tap="showDatePicker"
+        />
+        <van-field
+          value="{{ userInfo.education }}"
+          label="学历"
+          placeholder="请选择最高学历"
+          readonly
+          is-link
+          bind:tap="showEducationPicker"
+        />
+      </van-cell-group>
+    </van-tab>
+
+    <!-- 工作经历标签页 -->
+    <van-tab title="工作经历">
+      <view class="experience-list">
+        <view wx:for="{{ workExperiences }}" wx:key="index" class="experience-item">
+          <van-swipe-cell right-width="{{ 65 }}">
+            <van-cell-group>
+              <van-field
+                value="{{ item.company }}"
+                label="公司名称"
+                placeholder="请输入公司名称"
+                bind:change="onWorkExperienceChange"
+                data-field="company"
+                data-index="{{ index }}"
+              />
+              <van-field
+                value="{{ item.position }}"
+                label="职位"
+                placeholder="请输入职位"
+                bind:change="onWorkExperienceChange"
+                data-field="position"
+                data-index="{{ index }}"
+              />
+              <van-field
+                value="{{ item.duration }}"
+                label="工作时间"
+                placeholder="例：2020.01 - 2022.12"
+                bind:change="onWorkExperienceChange"
+                data-field="duration"
+                data-index="{{ index }}"
+              />
+            </van-cell-group>
+            <view slot="right" class="delete-btn" bindtap="deleteWorkExperience" data-index="{{ index }}">- 删除</view>
+          </van-swipe-cell>
+        </view>
+      </view>
+      <view class="add-btn-container">
+        <van-button icon="plus" type="primary" size="small" bind:tap="addWorkExperience">添加工作经历</van-button>
+      </view>
+    </van-tab>
+
+    <!-- 教育经历标签页 -->
+    <van-tab title="教育经历">
+      <view class="experience-list">
+        <view wx:for="{{ educationExperiences }}" wx:key="index" class="experience-item">
+          <van-swipe-cell right-width="{{ 65 }}">
+            <van-cell-group>
+              <van-field
+                value="{{ item.school }}"
+                label="学校名称"
+                placeholder="请输入学校名称"
+                bind:change="onEducationExperienceChange"
+                data-field="school"
+                data-index="{{ index }}"
+              />
+              <van-field
+                value="{{ item.major }}"
+                label="专业"
+                placeholder="请输入专业"
+                bind:change="onEducationExperienceChange"
+                data-field="major"
+                data-index="{{ index }}"
+              />
+              <van-field
+                value="{{ item.duration }}"
+                label="就读时间"
+                placeholder="例：2016.09 - 2020.06"
+                bind:change="onEducationExperienceChange"
+                data-field="duration"
+                data-index="{{ index }}"
+              />
+            </van-cell-group>
+            <view slot="right" class="delete-btn" bindtap="deleteEducationExperience" data-index="{{ index }}">- 删除</view>
+          </van-swipe-cell>
+        </view>
+      </view>
+      <view class="add-btn-container">
+        <van-button icon="plus" type="primary" size="small" bind:tap="addEducationExperience">添加教育经历</van-button>
+      </view>
+    </van-tab>
+
+    <!-- 技能特长标签页 -->
+    <van-tab title="技能特长">
+      <van-field
+        value="{{ skillsText }}"
+        label="技能特长"
+        type="textarea"
+        placeholder="请输入您的技能特长，用逗号分隔"
+        autosize
+        border="{{ false }}"
+        bind:change="onSkillsChange"
+      />
+      <view class="skills-container">
+        <van-tag 
+          wx:for="{{ skills }}" 
+          wx:key="index" 
+          type="primary" 
+          size="medium" 
+          color="#FF8C00"
+          class="skill-tag"
+        >
+          {{ item }}
+        </van-tag>
+      </view>
+    </van-tab>
+  </van-tabs>
+
+  <!-- 底部固定按钮 -->
+  <view class="bottom-buttons">
+    <van-button type="primary" icon="edit" block bind:tap="editResume">编辑简历</van-button>
+    <van-button type="info" icon="success" block bind:tap="saveResume">保存简历</van-button>
+    <van-button type="warning" icon="upgrade" block bind:tap="uploadResume">上传简历</van-button>
+  </view>
+
+  <!-- 各种选择器弹出层 -->
+  <van-popup show="{{ showGenderPicker }}" position="bottom" bind:close="onGenderPickerClose">
+    <van-picker
+      show-toolbar
+      title="选择性别"
+      columns="{{ genderOptions }}"
+      bind:confirm="onGenderConfirm"
+      bind:cancel="onGenderPickerClose"
+    />
+  </van-popup>
+
+  <van-popup show="{{ showDatePicker }}" position="bottom" bind:close="onDatePickerClose">
+    <van-datetime-picker
+      type="date"
+      value="{{ currentDate }}"
+      min-date="{{ minDate }}"
+      max-date="{{ maxDate }}"
+      bind:confirm="onDateConfirm"
+      bind:cancel="onDatePickerClose"
+    />
+  </van-popup>
+
+  <van-popup show="{{ showEducationPicker }}" position="bottom" bind:close="onEducationPickerClose">
+    <van-picker
+      show-toolbar
+      title="选择学历"
+      columns="{{ educationOptions }}"
+      bind:confirm="onEducationConfirm"
+      bind:cancel="onEducationPickerClose"
+    />
+  </van-popup>
+</view>
+

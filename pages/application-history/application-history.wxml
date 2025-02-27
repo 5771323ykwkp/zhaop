@@ -1,0 +1,53 @@
+<view class="application-page">
+  <van-tabs active="{{ active }}" bind:change="onChange" animated>
+    <van-tab title="待筛选">
+      <view class="application-list">
+        <view class="application-item" wx:for="{{ pendingList }}" wx:key="id">
+          <view class="application-content">
+            <text class="application-title">{{ item.jobTitle }}</text>
+            <text class="application-company">{{ item.company }}</text>
+            <text class="application-date">申请日期：{{ item.applyDate }}</text>
+          </view>
+          <van-tag type="warning">待筛选</van-tag>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="交流中">
+      <view class="application-list">
+        <view class="application-item" wx:for="{{ interviewingList }}" wx:key="id">
+          <view class="application-content">
+            <text class="application-title">{{ item.jobTitle }}</text>
+            <text class="application-company">{{ item.company }}</text>
+            <text class="application-date">面试日期：{{ item.interviewDate }}</text>
+          </view>
+          <van-tag type="primary">交流中</van-tag>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="筛选成功">
+      <view class="application-list">
+        <view class="application-item" wx:for="{{ acceptedList }}" wx:key="id">
+          <view class="application-content">
+            <text class="application-title">{{ item.jobTitle }}</text>
+            <text class="application-company">{{ item.company }}</text>
+            <text class="application-date">录用日期：{{ item.offerDate }}</text>
+          </view>
+          <van-tag type="success">筛选成功</van-tag>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="筛选失败">
+      <view class="application-list">
+        <view class="application-item" wx:for="{{ rejectedList }}" wx:key="id">
+          <view class="application-content">
+            <text class="application-title">{{ item.jobTitle }}</text>
+            <text class="application-company">{{ item.company }}</text>
+            <text class="application-date">拒绝日期：{{ item.rejectDate }}</text>
+          </view>
+          <van-tag type="danger">筛选失败</van-tag>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>
+

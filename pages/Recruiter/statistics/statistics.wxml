@@ -1,0 +1,51 @@
+<!--pages/Recruiter/statistics/statistics.wxml-->
+<!-- <text>pages/Recruiter/statistics/statistics.wxml</text> -->
+
+<!-- 招聘数据统计 -->
+<view class="statistics-container">
+  <van-tabs active="{{ activeTab }}" bind:change="onTabChange" color="#FF8C00">
+    <van-tab title="在招职位">
+      <view class="job-list">
+        <view class="job-item" wx:for="{{ activeJobs }}" wx:key="id">
+          <view class="job-info">
+            <view class="job-title">{{ item.title }}</view>
+            <view class="job-details">
+              <text class="job-salary">{{ item.salary }}</text>
+              <text class="job-location">{{ item.location }}</text>
+            </view>
+            <view class="job-stats">
+              <text class="stat-item">浏览 {{ item.views }}</text>
+              <text class="stat-item">投递 {{ item.applications }}</text>
+              <text class="stat-item">面试 {{ item.interviews }}</text>
+            </view>
+          </view>
+          <view class="job-actions">
+            <van-button size="small" type="danger" bind:click="stopJob" data-id="{{ item.id }}">停止招聘</van-button>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="停止招聘">
+      <view class="job-list">
+        <view class="job-item" wx:for="{{ inactiveJobs }}" wx:key="id">
+          <view class="job-info">
+            <view class="job-title">{{ item.title }}</view>
+            <view class="job-details">
+              <text class="job-salary">{{ item.salary }}</text>
+              <text class="job-location">{{ item.location }}</text>
+            </view>
+            <view class="job-stats">
+              <text class="stat-item">浏览 {{ item.views }}</text>
+              <text class="stat-item">投递 {{ item.applications }}</text>
+              <text class="stat-item">面试 {{ item.interviews }}</text>
+            </view>
+          </view>
+          <view class="job-actions">
+            <van-button size="small" type="primary" bind:click="reactivateJob" data-id="{{ item.id }}">重新发布</van-button>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>
+

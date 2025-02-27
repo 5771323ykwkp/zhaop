@@ -1,0 +1,174 @@
+<!--pages/Recruiter/posts/posts.wxml-->
+<!-- 职位发布页面 -->
+<view class="posts-container">
+  <!-- 表单区域 -->
+  <form bindsubmit="submitForm">
+    <!-- 基本信息部分 -->
+    <view class="form-section">
+      <view class="section-title">基本信息</view>
+      
+      <!-- 职位名称 -->
+      <view class="form-item">
+        <view class="form-label required">职位名称</view>
+        <input 
+          class="form-input" 
+          name="jobTitle" 
+          placeholder="请输入职位名称" 
+          value="{{formData.jobTitle}}"
+          bindinput="onInputChange"
+          data-field="jobTitle"
+        />
+      </view>
+
+      <!-- 职位类别 -->
+      <view class="form-item">
+        <view class="form-label required">职位类别</view>
+        <picker 
+          mode="selector" 
+          range="{{jobCategories}}" 
+          value="{{formData.categoryIndex}}"
+          bindchange="onCategoryChange"
+        >
+          <view class="picker-content">
+            {{jobCategories[formData.categoryIndex] || '请选择职位类别'}}
+            <van-icon name="arrow" />
+          </view>
+        </picker>
+      </view>
+
+      <!-- 薪资范围 -->
+      <view class="form-item">
+        <view class="form-label required">薪资范围</view>
+        <view class="salary-input">
+          <input 
+            class="form-input salary" 
+            type="number" 
+            name="salaryMin" 
+            placeholder="最低"
+            value="{{formData.salaryMin}}"
+            bindinput="onInputChange"
+            data-field="salaryMin"
+          />
+          <text class="salary-separator">-</text>
+          <input 
+            class="form-input salary" 
+            type="number" 
+            name="salaryMax" 
+            placeholder="最高"
+            value="{{formData.salaryMax}}"
+            bindinput="onInputChange"
+            data-field="salaryMax"
+          />
+          <text class="salary-unit">K/月</text>
+        </view>
+      </view>
+
+      <!-- 工作地点 -->
+      <view class="form-item">
+        <view class="form-label required">工作地点</view>
+        <picker 
+          mode="region" 
+          bindchange="onRegionChange" 
+          value="{{formData.region}}"
+        >
+          <view class="picker-content">
+            {{formData.region[0]}} {{formData.region[1]}} {{formData.region[2]}}
+            <van-icon name="arrow" />
+          </view>
+        </picker>
+      </view>
+
+      <!-- 工作经验 -->
+      <view class="form-item">
+        <view class="form-label required">工作经验</view>
+        <picker 
+          mode="selector" 
+          range="{{experienceOptions}}" 
+          value="{{formData.experienceIndex}}"
+          bindchange="onExperienceChange"
+        >
+          <view class="picker-content">
+            {{experienceOptions[formData.experienceIndex] || '请选择工作经验'}}
+            <van-icon name="arrow" />
+          </view>
+        </picker>
+      </view>
+
+      <!-- 学历要求 -->
+      <view class="form-item">
+        <view class="form-label required">学历要求</view>
+        <picker 
+          mode="selector" 
+          range="{{educationOptions}}" 
+          value="{{formData.educationIndex}}"
+          bindchange="onEducationChange"
+        >
+          <view class="picker-content">
+            {{educationOptions[formData.educationIndex] || '请选择学历要求'}}
+            <van-icon name="arrow" />
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 职位描述部分 -->
+    <view class="form-section">
+      <view class="section-title">职位描述</view>
+      
+      <!-- 工作职责 -->
+      <view class="form-item">
+        <view class="form-label required">工作职责</view>
+        <textarea 
+          class="form-textarea" 
+          name="jobDuties" 
+          placeholder="请输入工作职责"
+          value="{{formData.jobDuties}}"
+          bindinput="onInputChange"
+          data-field="jobDuties"
+        ></textarea>
+      </view>
+
+      <!-- 任职要求 -->
+      <view class="form-item">
+        <view class="form-label required">任职要求</view>
+        <textarea 
+          class="form-textarea" 
+          name="jobRequirements" 
+          placeholder="请输入任职要求"
+          value="{{formData.jobRequirements}}"
+          bindinput="onInputChange"
+          data-field="jobRequirements"
+        ></textarea>
+      </view>
+    </view>
+
+    <!-- 公司福利部分 -->
+    <view class="form-section">
+      <view class="section-title">公司福利</view>
+      <view class="benefits-tags">
+        <view 
+          class="benefit-tag {{item.selected ? 'selected' : ''}}" 
+          wx:for="{{benefits}}" 
+          wx:key="id"
+          bindtap="toggleBenefit"
+          data-id="{{item.id}}"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="submit-section">
+      <button 
+        class="submit-btn" 
+        type="primary" 
+        form-type="submit"
+        loading="{{isSubmitting}}"
+      >
+        发布职位
+      </button>
+    </view>
+  </form>
+</view>
+

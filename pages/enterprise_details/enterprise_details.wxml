@@ -1,0 +1,41 @@
+<!-- 企业详情页面 -->
+<view class="enterprise-details">
+  <!-- 企业基本信息 -->
+  <view class="enterprise-card">
+    <image class="enterprise-logo" src="{{enterpriseData.logo || '/image/menu/enterprise.png'}}" mode="aspectFit"></image>
+    <view class="enterprise-info">
+      <text class="enterprise-name">{{enterpriseData.name}}</text>
+      <text class="enterprise-industry">{{enterpriseData.industry}}</text>
+      <text class="enterprise-size">{{enterpriseData.size}}</text>
+    </view>
+  </view>
+
+  <!-- 企业位置 -->
+  <view class="info-section">
+    <view class="section-title">企业位置</view>
+    <text class="section-content">{{enterpriseData.location}}</text>
+  </view>
+
+  <!-- 企业简介 -->
+  <view class="info-section">
+    <view class="section-title">企业简介</view>
+    <text class="section-content">{{enterpriseData.description}}</text>
+  </view>
+
+  <!-- 在招岗位入口 -->
+  <view class="job-entry" bindtap="goToJobList">
+    <text class="job-entry-text">查看在招岗位</text>
+    <text class="job-count">{{enterpriseData.jobCount}}个职位</text>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <button class="action-button favorite-button" bindtap="toggleFavorite">
+      {{isFavorite ? '已收藏' : '收藏企业'}}
+    </button>
+    <button class="action-button share-button" open-type="share">
+      分享企业
+    </button>
+  </view>
+</view>
+

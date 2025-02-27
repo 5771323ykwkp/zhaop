@@ -1,0 +1,15 @@
+<!--pages/logins/logins.wxml-->
+<!-- 用户登录和注册页面 -->
+<!-- pages/logins/logins.wxml -->
+<view class="login-container">
+  <view class="login-box">
+    <text class="title">用户登录</text>
+    <input class="input" placeholder="请输入用户名" placeholder-class="placeholder" />
+    <input class="input" placeholder="请输入密码" password placeholder-class="placeholder" />
+    <button class="btn-login" bindtap="onLogin">登录</button>
+    <view class="register-link">
+      <text>没有账号？</text>
+      <text class="link" bindtap="goToRegister">立即注册</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index"
+	},
+	"navigationBarTextStyle":"black",
+	"navigationBarTitleText": "简历筛选"
+}

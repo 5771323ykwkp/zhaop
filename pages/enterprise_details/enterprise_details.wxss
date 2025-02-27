@@ -1,0 +1,130 @@
+/* 企业详情页面样式 */
+.enterprise-details {
+  padding: 20rpx;
+	background-color: #f5f5f5;
+	min-height: 100vh;
+}
+
+/* 企业卡片样式 */
+.enterprise-card {
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.enterprise-logo {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+.enterprise-info {
+  flex: 1;
+}
+
+.enterprise-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.enterprise-industry, .enterprise-size {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 5rpx;
+  display: block;
+}
+
+/* 信息部分样式 */
+.info-section {
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.section-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 在招岗位入口样式 */
+.job-entry {
+  background-color: #ff6b6b;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-entry-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.job-count {
+  font-size: 28rpx;
+  color: #ffffff;
+}
+
+/* 操作按钮样式 */
+.action-buttons {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color:white;
+	box-shadow: 0 -1px 5px rgba(0,0,0,0.2);
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	z-index: 1000;
+}
+
+.action-button {
+  flex: 1;
+  margin: 0 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.favorite-button {
+  background-color: #fff;
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+}
+
+.share-button {
+  background-color: #ff6b6b;
+  color: #fff;
+}
+

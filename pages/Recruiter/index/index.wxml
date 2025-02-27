@@ -1,0 +1,105 @@
+<!-- 企业端首页 -->
+<view class="page-container">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="padding-top: {{statusBarHeight}}px">
+    <view class="nav-title">首页</view>
+  </view>
+
+  <!-- 主要内容区域，需要加上导航栏的高度作为顶部边距 -->
+  <view class="content" style="margin-top: {{statusBarHeight + 44}}px">
+		<!-- 公告组件 -->
+		<view class="notice-content">
+		<van-notice-bar 
+  		left-icon="volume" 
+  		text="{{notice}}"
+  		color="#FF8C00"
+  		background="#FFF5E6"
+		></van-notice-bar>
+	</view>
+    <!-- 轮播图部分 -->
+    <swiper class="banner-swiper" 
+            indicator-dots="{{true}}"
+            autoplay="{{true}}"
+            interval="{{3000}}"
+            circular="{{true}}"
+            indicator-color="rgba(255, 255, 255, 0.6)"
+            indicator-active-color="#FF8C00">
+      <swiper-item wx:for="{{bannerList}}" wx:key="id">
+        <image src="{{item.imageUrl}}" mode="aspectFill" class="banner-image"></image>
+      </swiper-item>
+    </swiper>
+
+    <!-- 功能菜单网格 -->
+    <view class="menu-grid">
+      <!-- 发布职位按钮 -->
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/Recruiter/posts/posts">
+        <view class="menu-icon">
+          <van-icon name="edit" size="48rpx" color="#FF8C00" />
+        </view>
+        <text class="menu-text">职位发布</text>
+      </view>
+
+      <!-- 简历筛选 -->
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/Recruiter/sift/sift">
+        <view class="menu-icon">
+          <van-icon name="friends" size="48rpx" color="#FF8C00" />
+        </view>
+        <text class="menu-text">简历筛选</text>
+      </view>
+
+      <!-- 沟通中心按钮 -->
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/Recruiter/communicate/communicate">
+        <view class="menu-icon">
+          <van-icon name="chat" size="48rpx" color="#FF8C00" />
+        </view>
+        <text class="menu-text">沟通中心</text>
+      </view>
+
+      <!-- 企业登录（认证） -->
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/Recruiter/certification/certification">
+        <view class="menu-icon">
+          <van-icon name="manager" size="48rpx" color="#FF8C00" />
+        </view>
+        <text class="menu-text">企业认证</text>
+      </view>
+
+      <!-- 招聘数据统计按钮 -->
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/Recruiter/statistics/statistics">
+        <view class="menu-icon">
+          <van-icon name="chart-trending-o" size="48rpx" color="#FF8C00" />
+        </view>
+        <text class="menu-text">职位统计</text>
+      </view>
+
+      <!-- 系统设置按钮 -->
+      <view class="menu-item" bindtap="navigateTo" data-url="/pages/Recruiter/set/set">
+        <view class="menu-icon">
+          <van-icon name="setting" size="48rpx" color="#FF8C00" />
+        </view>
+        <text class="menu-text">系统设置</text>
+      </view>
+    </view>
+
+		<!-- 企业登录按钮 -->
+		<view class="login-register" bindtap="logins">
+			<button type="warn" style="width: 95%;height: 90rpx;">登录/注册</button>
+		</view>
+
+    <!-- 最新动态区域 -->
+    <view class="news-section">
+      <view class="section-title"><image class="icon" src="/image/icon/enterprise.png"></image><span class="title">最新公告</span></view>
+      <view class="news-list">
+        <view class="news-item" wx:for="{{newsList}}" wx:key="id" bind:tap="notice">
+          <image class="news-image" src="{{item.image || '/image/swiper/news.webp'}}" mode="aspectFill"></image>
+          <view class="news-content">
+					<!-- 公告标题 -->
+            <view class="news-title">{{item.title}}</view>
+						<!-- 公告发布时间 -->
+            <view class="news-time">{{item.time}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

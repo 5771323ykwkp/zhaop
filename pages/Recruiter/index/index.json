@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "首页",
+  "navigationBarBackgroundColor": "#FF8C00",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "custom",
+  "usingComponents": {
+		"van-icon": "@vant/weapp/icon/index",
+		"van-notice-bar": "@vant/weapp/notice-bar/index"
+  }
+}
+

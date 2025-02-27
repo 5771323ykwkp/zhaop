@@ -1,0 +1,16 @@
+<view class="feedback-page">
+  <view class="feedback-form">
+    <textarea 
+      class="feedback-input" 
+      placeholder="请输入您的意见或建议..." 
+      bindinput="onInputChange"
+      value="{{feedbackContent}}"
+    ></textarea>
+    
+    <view class="button-group">
+      <button class="reset-button" bindtap="resetFeedback">重置</button>
+      <button class="submit-button" bindtap="submitFeedback">提交</button>
+    </view>
+  </view>
+</view>
+

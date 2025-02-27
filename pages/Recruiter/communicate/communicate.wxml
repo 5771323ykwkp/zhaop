@@ -1,0 +1,53 @@
+<view class="communicate-container">
+  <!-- 搜索栏
+  <view class="search-bar">
+    <van-search
+      value="{{ searchValue }}"
+      placeholder="搜索聊天记录"
+      bind:change="onSearchChange"
+      shape="round"
+      background="#FF8C00"
+    />
+  </view> -->
+
+  <!-- 消息列表 -->
+  <scroll-view scroll-y class="message-list" bindscrolltolower="loadMore" bind:tap="openChat">
+    <block wx:if="{{chatList.length > 0}}">
+      <view 
+        class="chat-item" 
+        wx:for="{{chatList}}" 
+        wx:key="id"
+        bindtap="navigateToChat"
+        data-id="{{item.id}}"
+        data-name="{{item.name}}"
+      >
+        <!-- 头像和在线状态 -->
+        <view class="avatar-container">
+          <image class="avatar" src="{{item.avatar || '/image/icon/job.png'}}" mode="aspectFill"></image>
+          <view class="status-dot {{item.online ? 'online' : ''}}"></view>
+        </view>
+
+        <!-- 聊天信息 -->
+        <view class="chat-info">
+          <view class="chat-header">
+            <text class="name">{{item.name}}</text>
+            <text class="time">{{item.lastTime}}</text>
+          </view>
+          <view class="chat-content">
+            <text class="last-message">{{item.lastMessage}}</text>
+            <view wx:if="{{item.unreadCount > 0}}" class="unread-count">
+              {{item.unreadCount}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 空状态 -->
+    <view wx:else class="empty-state">
+      <image class="empty-icon" src="/images/empty-chat.png" mode="aspectFit"></image>
+      <text class="empty-text">暂无聊天记录</text>
+    </view>
+  </scroll-view>
+</view>
+

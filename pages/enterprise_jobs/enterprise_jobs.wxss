@@ -1,0 +1,115 @@
+/* pages/enterprise_jobs/enterprise_jobs.wxss */
+/* 页面整体样式 */
+.job-page {
+  min-height: 100vh;
+  background-color:#f5f5f5;
+}
+
+/* 搜索框容器样式 */
+.search-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* 总数显示样式 */
+.total-count {
+  padding: 15rpx;
+  font-size: 30rpx;
+	color:black;
+	text-align: center;
+}
+
+/* 职位列表样式 */
+.job-list {
+  padding: 0 20rpx;
+}
+
+/* 职位卡片样式 */
+.job-card {
+  background-color:#FFFFFF;
+  border-radius: 12rpx;
+  padding: 20rpx;
+	margin-bottom: 20rpx;
+	/* 列表影子CSS */
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 职位头部样式 */
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+/* 职位名称样式 */
+.job-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 薪资样式 */
+.job-salary {
+  font-size: 28rpx;
+  color: #ff6b6b;
+	font-weight: bold;
+	
+}
+
+/* 公司信息样式 */
+.job-company {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+}
+
+/* 工作地点样式 */
+.job-location {
+  color: #999;
+}
+
+/* 标签容器样式 */
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 12rpx;
+}
+
+/* 标签样式 */
+.job-tag {
+  font-size: 22rpx;
+  color: #ff8c00;
+  background-color: rgba(255, 140, 0, 0.1);
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+}
+
+/* 职位描述和要求样式 */
+.job-description, .job-requirements {
+  margin-top: 12rpx;
+}
+
+/* 描述和要求标题样式 */
+.description-title, .requirements-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6rpx;
+  display: block;
+}
+
+/* 描述和要求内容样式 */
+.description-content, .requirements-content {
+  font-size: 24rpx;
+  color: #666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+

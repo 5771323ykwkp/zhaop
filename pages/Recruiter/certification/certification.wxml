@@ -1,0 +1,157 @@
+<!--pages/Recruiter/certification/certification.wxml-->
+<!-- <text>pages/Recruiter/certification/certification.wxml</text> -->
+
+<!-- 企业认证页面 -->
+<view class="certification-container">
+  <!-- 顶部提示 -->
+  <!-- <van-notice-bar
+    left-icon="info-o"
+    text="企业认证通过后，可发布职位信息并查看求职者简历"
+    background="#FFF7E6"
+    color="#FF8C00"
+  /> -->
+
+  <!-- 表单区域 -->
+  <form bindsubmit="submitForm">
+    <view class="form-group">
+      <view class="form-title">企业基本信息</view>
+      
+      <!-- 企业名称 -->
+      <van-field
+        value="{{ formData.companyName }}"
+        label="企业名称"
+        placeholder="请输入企业名称"
+        required
+        bind:change="onInputChange"
+        data-field="companyName"
+      />
+      
+      <!-- 统一社会信用代码 -->
+      <van-field
+        value="{{ formData.creditCode }}"
+        label="统一社会信用代码"
+        placeholder="请输入统一社会信用代码"
+        required
+        bind:change="onInputChange"
+        data-field="creditCode"
+      />
+      
+      <!-- 企业规模 -->
+      <van-field
+        value="{{ formData.scale }}"
+        label="企业规模"
+        placeholder="请选择企业规模"
+        required
+        readonly
+        is-link
+        bindtap="showScalePicker"
+      />
+      
+      <!-- 所属行业 -->
+      <van-field
+        value="{{ formData.industry }}"
+        label="所属行业"
+        placeholder="请选择所属行业"
+        required
+        readonly
+        is-link
+        bindtap="showIndustryPicker"
+      />
+    </view>
+
+    <view class="form-group">
+      <view class="form-title">企业资质</view>
+      
+      <!-- 营业执照上传 -->
+      <view class="upload-section">
+        <view class="upload-title">
+          <text class="required">*</text>
+          <text>营业执照</text>
+        </view>
+        <view class="upload-content">
+          <view class="upload-box" bindtap="uploadLicense" wx:if="{{!formData.license}}">
+            <van-icon name="plus" size="24px" color="#999"/>
+            <text class="upload-text">上传营业执照</text>
+          </view>
+          <view class="preview-box" wx:else>
+            <image src="{{formData.license}}" mode="aspectFit" class="preview-image"/>
+            <van-icon name="close" class="delete-icon" bindtap="deleteLicense"/>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <view class="form-title">联系人信息</view>
+      
+      <!-- 联系人姓名 -->
+      <van-field
+        value="{{ formData.contactName }}"
+        label="联系人"
+        placeholder="请输入联系人姓名"
+        required
+        bind:change="onInputChange"
+        data-field="contactName"
+      />
+      
+      <!-- 联系人职位 -->
+      <van-field
+        value="{{ formData.contactTitle }}"
+        label="职位"
+        placeholder="请输入联系人职位"
+        required
+        bind:change="onInputChange"
+        data-field="contactTitle"
+      />
+      
+      <!-- 联系电话 -->
+      <van-field
+        value="{{ formData.contactPhone }}"
+        label="联系电话"
+        placeholder="请输入联系电话"
+        required
+        type="number"
+        bind:change="onInputChange"
+        data-field="contactPhone"
+      />
+      
+      <!-- 电子邮箱 -->
+      <van-field
+        value="{{ formData.contactEmail }}"
+        label="电子邮箱"
+        placeholder="请输入电子邮箱"
+        required
+        bind:change="onInputChange"
+        data-field="contactEmail"
+      />
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="submit-section">
+      <van-button type="primary" size="large" form-type="submit" loading="{{submitting}}">
+        提交认证
+      </van-button>
+    </view>
+  </form>
+
+  <!-- 企业规模选择器 -->
+  <van-popup show="{{ showScalePicker }}" position="bottom" bind:close="closeScalePicker">
+    <van-picker 
+      columns="{{ scaleOptions }}" 
+      bind:confirm="onScaleConfirm" 
+      bind:cancel="closeScalePicker"
+      show-toolbar
+    />
+  </van-popup>
+
+  <!-- 行业选择器 -->
+  <van-popup show="{{ showIndustryPicker }}" position="bottom" bind:close="closeIndustryPicker">
+    <van-picker 
+      columns="{{ industryOptions }}" 
+      bind:confirm="onIndustryConfirm" 
+      bind:cancel="closeIndustryPicker"
+      show-toolbar
+    />
+  </van-popup>
+</view>
+

@@ -1,0 +1,115 @@
+/* 容器样式 */
+.container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 左侧波浪装饰 */
+.wave-left {
+  position: absolute;
+  left: -120rpx;
+  top: 5%;
+  width: 800rpx;
+  height: 1000rpx;
+  background: linear-gradient(135deg, rgba(236, 21, 6, 0.1), rgba(211, 106, 8, 0.05));
+  border-radius: 100% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: rotate(-15deg);
+}
+
+/* 右侧波浪装饰 */
+.wave-right {
+  position: absolute;
+  right: -150rpx;
+  top: 45%;
+  width: 800rpx;
+  height: 1000rpx;
+  background: linear-gradient(225deg, rgba(209, 29, 5, 0.08), rgba(240, 119, 6, 0.03));
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  transform: rotate(15deg);
+}
+
+/* 主要内容区域样式 */
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40rpx;
+  margin-top: 25vh;
+}
+
+/* 标题样式 */
+.title {
+	margin-top: -200rpx;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 16rpx;
+}
+
+/* 副标题样式 */
+.subtitle {
+  font-size: 32rpx;
+  color: #666666;
+  margin-bottom: 80rpx;
+}
+
+/* 按钮组样式 */
+.button-group {
+  width: 100%;
+	display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+/* 按钮基础样式 */
+.btn {
+  width: 100% !important;
+  height: 96rpx;
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* 主按钮样式 */
+.btn-primary {
+  background: linear-gradient(135deg, #FF8C00, #FFA500) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 6rpx 16rpx rgba(255, 140, 0, 0.2);
+}
+
+/* 次要按钮样式 */
+.btn-secondary {
+  background: #ffffff !important;
+	color: #FF8C00 !important;
+  border: 2rpx solid rgba(255, 140, 0, 0.3) !important;
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 按钮悬停效果 */
+.btn-hover {
+  transform: translateY(-2rpx);
+  opacity: 0.9;
+}
+
+/* 按钮图标样式 */
+.btn-icon {
+  margin-right: 16rpx;
+}
+
+/* 关于我们样式 */
+.copyright{
+	color: #6e6d6b;
+	font-size: small;
+	margin-top: 20rpx;
+}
+

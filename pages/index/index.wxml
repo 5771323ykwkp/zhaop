@@ -1,0 +1,30 @@
+<view class="container">
+	<!-- <view class="logo">
+		<image src="//image/icon/notice.png"></image>
+	</view> -->
+  <!-- 左右装饰波浪 -->
+  <view class="wave-left"></view>
+  <view class="wave-right"></view>
+
+  <!-- 主要内容区域 -->
+  <view class="content">
+    <view class="title">求职招聘小程序</view>
+    <view class="subtitle">请选择您的身份</view>
+    
+    <!-- 确认用户身份按钮 -->
+    <view class="button-group">
+      <button class="btn btn-primary" hover-class="btn-hover" bindtap="onJobSeekerTap">
+        <van-icon name="manager" size="48rpx" class="btn-icon" />
+        <text>我要求职</text>
+      </button>
+      <button class="btn btn-secondary" hover-class="btn-hover" bindtap="onEmployerTap">
+        <van-icon name="shop" size="48rpx" class="btn-icon" />
+        <text>我要招聘</text>
+      </button>
+    </view>
+  </view>
+	<view class="copyright">
+		<text> Copyright © 2025 基于微信小程序+FastAPI的求职招聘系统</text>
+	</view>
+</view>
+
